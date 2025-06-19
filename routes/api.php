@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SongController;
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/songs', [SongController::class, 'index']);
+    Route::post('/songs', [SongController::class, 'store']);
+    Route::delete('/songs/{song}', [SongController::class, 'destroy']);
+});
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/users', [UserController::class, 'index']);
