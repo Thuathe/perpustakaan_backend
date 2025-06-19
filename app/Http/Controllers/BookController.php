@@ -78,7 +78,7 @@ public function update(Request $request, Book $book)
         $book->cover = $uploadedFile->getSecurePath();
     }
 
-    // Update data buku
+    // Update data buku b
     $book->update([
         'title' => $request->title,
         'author' => $request->author,
